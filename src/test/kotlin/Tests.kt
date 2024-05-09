@@ -1,4 +1,6 @@
-import Beanject.bean
+
+import hu.tothlp.beanject.di.Beanject
+import hu.tothlp.beanject.di.Beanject.bean
 import io.mockk.mockk
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach

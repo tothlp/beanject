@@ -1,3 +1,5 @@
+package hu.tothlp.beanject.di
+
 object Beanject {
 
 	val beanContainer = mutableMapOf<String, Any>()
