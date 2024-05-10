@@ -11,7 +11,7 @@ class BeanjectTest {
 
 	@BeforeEach
 	fun setup() {
-		Beanject.beanContainer.clear()
+		Beanject.clear()
 	}
 
 	@Test

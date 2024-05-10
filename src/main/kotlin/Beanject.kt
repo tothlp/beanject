@@ -1,11 +1,11 @@
 package hu.tothlp.beanject.di
 
 object Beanject {
-
-	val beanContainer = mutableMapOf<String, Any>()
+	private val _beanContainer = mutableMapOf<String, Any>()
+	val beanContainer: Map<String, Any> get() = _beanContainer
 
 	fun getBeanByName(name: String): Any? {
-		return beanContainer[name] ?: throw IllegalArgumentException("No bean found with name $name")
+		return _beanContainer[name] ?: throw IllegalArgumentException("No bean found with name $name")
 	}
 
 	inline fun <reified T> getBean(name: String? = null): T {
@@ -15,7 +15,11 @@ object Beanject {
 	}
 
 	private fun registerBean(name: String, bean: Any) {
-		beanContainer[name] = bean
+		_beanContainer[name] = bean
+	}
+
+	fun clear() {
+		_beanContainer.clear()
 	}
 
 	class BeanDefinitionDsl()
@@ -31,4 +35,6 @@ object Beanject {
 		beans.init()
 		return beans
 	}
+
 }
+
